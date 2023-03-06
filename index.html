@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <script src="https://kit.fontawesome.com/5949ce0879.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer>
+        function run() {
+            let htmlCode = document.getElementById("html-code").value;
+            let cssCode = document.getElementById("css-code").value;
+            let jsCode = document.getElementById("js-code").value;
+            let output = document.getElementById("output");
+            output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
+            output.contentWindow.eval(jsCode);
+        }       
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <label for=""><i class="fa-brands fa-html5" style="color:orangered;"></i>HTML</label>
+            <textarea name="" id="html-code" cols="30" rows="10" onkeyup="run()"></textarea>
+            <label for=""><i class="fa-brands fa-css3" style="color:lightseagreen"></i>CSS</label>
+            <textarea name="" id="css-code" cols="30" rows="10" onkeyup="run()"></textarea>
+            <label for=""><i class="fa-brands fa-square-js" style="color:yellow"></i>Javascript</label>
+            <textarea name="" id="js-code" cols="30" rows="10" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label for=""><i class="fa-solid fa-play"></i>Play</i></label>
+            <iframe src="" frameborder="0" id="output"></iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>
